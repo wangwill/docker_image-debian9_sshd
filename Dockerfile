@@ -5,9 +5,6 @@ RUN apt-get update && apt-get install -y python openssh-server \
   && apt-get -y --purge autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* \
   && mkdir /var/run/sshd && mkdir -p /root/.ssh/
 
-VOLUME /root/.ssh/
-  
 EXPOSE 22
 
-CMD [ "/usr/sbin/sshd", "-D" ]
-
+CMD [ "/usr/sbin/sshd", "-eD" ]
