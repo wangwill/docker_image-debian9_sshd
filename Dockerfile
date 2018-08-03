@@ -1,8 +1,10 @@
 FROM debian:9
 MAINTAINER Will
 
-RUN apt-get update && apt-get install -y openssh-server \
-  && apt-get -y --purge autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* \
+RUN apt-get update && \
+	apt-get install -y openssh-server && \
+	rm -rf /var/lib/apt/lists/* && \
+	apt-get clean
   
 RUN echo 'root:root' |chpasswd
 
